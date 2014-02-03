@@ -1,0 +1,35 @@
+include $(GNUSTEP_MAKEFILES)/common.make
+include ../Version
+
+PACKAGE_NAME = gnustep-corenetwork
+
+LIBRARY_NAME = libgnustep-corenetwork
+
+ADDITIONAL_INCLUDE_DIRS = -I../Headers
+ADDITIONAL_CFLAGS = -DBUILDING_SELF
+ADDITIONAL_CXXFLAGS = -DBUILDING_SELF
+ADDITIONAL_OBJCFLAGS = -DBUILDING_SELF
+
+libgnustep-corenetwork_INTERFACE_VERSION = $(MAJOR_VERSION)
+
+libgnustep-corenetwork_C_FILES = \
+  CFSocketStream.c
+
+libgnustep-corenetwork_HEADER_FILES = \
+  CFNetwork.h \
+  CFSocketStream.h
+
+libgnustep-corenetwork_LIBRARIES_DEPEND_UPON += -lgnustep-corebase
+libgnustep-corenetwork_HEADER_FILES_DIR = ../Headers/CFNetwork
+libgnustep-corenetwork_HEADER_FILES_INSTALL_DIR = CFNetwork
+
+libgnustep-corenetwork_NEEDS_GUI = NO
+
+ifeq ($(GNUSTEP_TARGET_OS), mingw32)
+  ADDITIONAL_LDFLAGS = -L/mingw/bin
+endif
+
+include $(GNUSTEP_MAKEFILES)/library.make
+
+-include Makefile.postamble
+
