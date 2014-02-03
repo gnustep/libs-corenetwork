@@ -1,0 +1,4 @@
+
+# Link tests with corebase library
+ADDITIONAL_OBJC_LIBS += -lgnustep-corenetwork
+ADDITIONAL_OBJCFLAGS = 

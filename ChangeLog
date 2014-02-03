@@ -1,0 +1,3 @@
+2014-02-03 Lubos Dolezel <lubos@dolezel.info>
+	* Source/CFSocketStream.c:  Initial support for pre-existing sockets
+
